@@ -1,0 +1,43 @@
+.smarty-text {
+  --font-size-display: 35px;
+  --font-size-heading: 30px;
+  --font-size-content-title: 18px;
+  --font-size-body: 16px;
+  --font-size-label: 14px;
+  --font-weight-bold: bold;
+  --font-weight-regular: normal;
+  font-family: var(--theme-font-family);
+  color: var(--theme-color-text);
+}
+
+.st-display {
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-bold);
+}
+.st-heading {
+  font-size: var(--font-size-heading);
+  font-weight: var(--font-weight-bold);
+}
+.st-content-title {
+  font-size: var(--font-size-content-title);
+  font-weight: var(--font-weight-bold);
+}
+.st-body {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+}
+.st-label {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  color: var(--theme-color-label);
+}
+
+@media screen and (max-width: 600px) {
+  .smarty-text {
+    --font-size-display: 25px;
+    --font-size-heading: 20px;
+    --font-size-content-title: 15px;
+    --font-size-body: 14px;
+    --font-size-label: 14px;
+  }
+}
