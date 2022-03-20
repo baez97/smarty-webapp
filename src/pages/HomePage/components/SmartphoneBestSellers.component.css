@@ -1,0 +1,7 @@
+.sbs-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  padding: 20px;
+  padding-top: 10px;
+}

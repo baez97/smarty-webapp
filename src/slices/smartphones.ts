@@ -1,18 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { CombinedState, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { constants } from '../constants';
 import { ISmartphone } from '../models/smartphone.model';
 
 export interface ISmartphoneSliceState {
-  loading: boolean,
-  hasErrors: boolean,
-  smartphones: Array<ISmartphone>
+  loadingSmartphones: boolean,
+  loadingBestSellers: boolean,
+  smartphoneHasErrors: boolean,
+  bestSellersHasErrors: boolean,
+  smartphones: Array<ISmartphone>,
+  bestSellers: Array<string>
 }
 
 export const initialState: ISmartphoneSliceState = {
-  loading: false,
-  hasErrors: false,
-  smartphones: new Array<ISmartphone>()
+  loadingSmartphones: false,
+  loadingBestSellers: false,
+  smartphoneHasErrors: false,
+  bestSellersHasErrors: false,
+  smartphones: new Array<ISmartphone>(),
+  bestSellers: new Array<string>()
 };
 
 const smartphonesSlice = createSlice({
@@ -20,23 +26,42 @@ const smartphonesSlice = createSlice({
   initialState,
   reducers: {
     getSmartphones: (state) => {
-      state.loading = true;
+      state.loadingSmartphones = true;
+    },
+    getBestSellers: (state) => {
+      state.loadingBestSellers = true;
     },
     getSmartphonesSuccess: (state, { payload }) => {
       state.smartphones = payload;
-      state.loading = false;
-      state.hasErrors = false;
+      state.loadingSmartphones = false;
+      state.smartphoneHasErrors = false;
+    },
+    getBestSellersSuccess: (state, { payload }) => {
+      state.bestSellers = payload;
+      state.loadingBestSellers = false;
+      state.bestSellersHasErrors = false;
     },
     getSmartphonesFailure: (state) => {
-      state.loading = false;
-      state.hasErrors = true;
+      state.loadingSmartphones = false;
+      state.smartphoneHasErrors = true;
+    },
+    getBestSellersFailure: (state) => {
+      state.loadingBestSellers = false;
+      state.bestSellersHasErrors = true;
     }
   }
 });
 
-export const { getSmartphones, getSmartphonesSuccess, getSmartphonesFailure } = smartphonesSlice.actions;
+export const {
+  getSmartphones,
+  getBestSellers,
+  getSmartphonesSuccess,
+  getBestSellersSuccess,
+  getSmartphonesFailure,
+  getBestSellersFailure
+} = smartphonesSlice.actions;
 
-export const smartphonesSelector = (state: any) => state.smartphones;
+export const smartphonesSelector = (state: CombinedState<{ smartphones: ISmartphoneSliceState }>) => state.smartphones;
 
 export default smartphonesSlice.reducer;
 
@@ -49,6 +74,19 @@ export function fetchSmartphones() {
       dispatch(getSmartphonesSuccess(data));
     } catch {
       dispatch(getSmartphonesFailure());
+    }
+  }
+}
+
+export function fetchBestSellers() {
+  return async (dispatch: any) => {
+    dispatch(getBestSellers());
+
+    try {
+      const { data } = await axios.get(`${constants.BACKEND_URL}/device/best-sellers`);
+      dispatch(getBestSellersSuccess(data));
+    } catch {
+      dispatch(getBestSellersFailure());
     }
   }
 }

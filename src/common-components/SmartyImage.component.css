@@ -1,13 +1,16 @@
-.si-empty-medium {
+.si-large {
   width: 100%;
-  height: 130px;
-  background-color: var(--theme-color-shadow);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
 }
 
-.si-empty-large {
-  width: 400px;
-  height: 400px;
-  background-color: var(--theme-color-shadow);
+.si-large > img {
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .si-medium {

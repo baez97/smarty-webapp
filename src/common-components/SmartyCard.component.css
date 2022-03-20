@@ -22,8 +22,7 @@
 }
 
 .sc-large {
-  width: 200px;
-  height: 400px;
+  min-width: 230px;
   margin: 15px;
 }
 
