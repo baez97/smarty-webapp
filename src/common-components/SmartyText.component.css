@@ -6,6 +6,10 @@
   --font-size-label: 14px;
   --font-weight-bold: bold;
   --font-weight-regular: normal;
+
+  --margin-heading: 20px;
+  --margin-content-title: 20px;
+
   font-family: var(--theme-font-family);
   color: var(--theme-color-text);
 }
@@ -17,10 +21,12 @@
 .st-heading {
   font-size: var(--font-size-heading);
   font-weight: var(--font-weight-bold);
+  margin-bottom: var(--margin-heading);
 }
 .st-content-title {
   font-size: var(--font-size-content-title);
   font-weight: var(--font-weight-bold);
+  margin-top: var(--margin-content-title);
 }
 .st-body {
   font-size: var(--font-size-body);
@@ -30,6 +36,14 @@
   font-size: var(--font-size-label);
   font-weight: var(--font-weight-regular);
   color: var(--theme-color-label);
+}
+
+.st-ellipsize {
+  width: 100%;
+  max-lines: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 600px) {

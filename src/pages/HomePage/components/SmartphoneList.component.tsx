@@ -4,6 +4,8 @@ import { RootState } from 'index';
 import { SmartyText } from 'common-components/SmartyText.component';
 import { ISmartphone } from 'models/smartphone.model';
 import { ISmartphoneSliceState, smartphonesSelector, fetchSmartphones } from 'slices/smartphones';
+import { SmartyCard } from 'common-components/SmartyCard.component';
+import './SmartphoneList.component.css';
 
 export function SmartphoneList() {
   const dispatch = useDispatch();
@@ -20,9 +22,9 @@ export function SmartphoneList() {
   }
 
   return (
-    <div>
+    <div className="sl-grid">
       {smartphones.map((iSmartphone: ISmartphone) => {
-        return <SmartyText type='body' key={iSmartphone._id}>{iSmartphone.name}</SmartyText>
+        return <SmartyCard smartphone={iSmartphone} size="medium"/>
       })}
     </div>
   );

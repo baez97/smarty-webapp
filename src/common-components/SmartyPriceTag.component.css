@@ -1,0 +1,6 @@
+.sl-container {
+  padding: 3px 7px;
+  margin-top: 10px;
+  border: 1px solid var(--theme-color-label);
+  border-radius: 10px;
+}

@@ -1,9 +1,10 @@
 import React from 'react';
 import './SmartyText.component.css';
 
-type TextTypes = 'display' | 'heading' | 'contentTitle' | 'body' | 'label';
-type Props = { type: TextTypes, children: any };
+type TextTypes = 'display' | 'heading' | 'content-title' | 'body' | 'label';
+type Props = { type?: TextTypes, children: any, ellipsize?: boolean };
 
 export function SmartyText(props: Props) {
-  return <div className={`smarty-text st-${props.type}`}>{props.children}</div>
+  const type = props.type || 'body';
+  return <div className={`smarty-text st-${type} ${props.ellipsize ? 'st-ellipsize' : ''}`}>{props.children}</div>
 }
