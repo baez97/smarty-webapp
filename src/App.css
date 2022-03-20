@@ -6,6 +6,7 @@
   --color-white: #fff;
   --color-black: #000;
   --color-grey-100: #F1F2F3;
+  --color-grey-150: #D3DDEB;
   --color-grey-200: #D6D9DC;
   --color-grey-300: #9B9B9B;
 }
@@ -17,7 +18,12 @@
   --theme-color-secondary-text: var(--color-grey-300);
   --theme-color-label: var(--color-blue);
   --theme-color-shadow: var(--color-grey-200);
+  --theme-color-border: var(--color-grey-150);
   --theme-color-card: var(--color-white);
+  --theme-size-side-bar-width: 300px;
+  --theme-size-side-bar-height: 150px;
+  --theme-size-distance-from-side: 85px;
+  --theme-size-distance-from-top: 80px;
 }
 
 html {

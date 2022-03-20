@@ -1,0 +1,18 @@
+.hsp-container {
+  height: 100vh;
+  border-right: 1px solid var(--theme-color-border);
+  min-width: var(--theme-size-side-bar-width);
+  position: fixed;
+  z-index: 100;
+  padding-top: calc(var(--theme-size-distance-from-top) - 6px);
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 600px) {
+  .hsp-container {
+    height: var(--theme-size-side-bar-height);
+    width: 100%;
+    padding-top: 20px;
+  }
+}

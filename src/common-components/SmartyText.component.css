@@ -21,7 +21,7 @@
 .st-heading {
   font-size: var(--font-size-heading);
   font-weight: var(--font-weight-bold);
-  margin-bottom: var(--margin-heading);
+  margin-left: var(--theme-size-distance-from-side);
 }
 .st-content-title {
   font-size: var(--font-size-content-title);

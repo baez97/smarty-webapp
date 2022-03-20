@@ -5,6 +5,10 @@ import { RootState } from 'index';
 import { useDispatch, useSelector } from 'react-redux';
 import { ISmartphoneSliceState, smartphonesSelector, fetchSmartphones, fetchBestSellers } from 'slices/smartphones';
 import { SmartphoneBestSellers } from './components/SmartphoneBestSellers.component';
+import { HomeSidePanel } from './components/HomeSidePanel.component';
+
+import './HomePage.page.css';
+import { SmartySpace } from 'common-components/SmartySpace.component';
 
 export function HomePage() {
   const dispatch = useDispatch();
@@ -25,11 +29,19 @@ export function HomePage() {
   }
 
   return (
-    <section>
-      <SmartyText type='heading'>Best sellers</SmartyText>
-      <SmartphoneBestSellers loading={loadingSmartphones || loadingBestSellers} smartphones={smartphones} bestSellers={bestSellers} />
-      <SmartyText type='heading'>All the smartphones</SmartyText>
-      <SmartphoneList loading={loadingSmartphones} smartphones={smartphones} />
-    </section>
+    <div className='hp-container'>
+      <HomeSidePanel />
+      <div className='hp-content-container'>
+        <SmartySpace height={'var(--theme-size-distance-from-top)'} />
+        <section>
+          <SmartyText type='heading'>Best sellers</SmartyText>
+          <SmartphoneBestSellers loading={loadingSmartphones || loadingBestSellers} smartphones={smartphones} bestSellers={bestSellers} />
+        </section>
+        <section>
+          <SmartyText type='heading'>All the smartphones</SmartyText>
+          <SmartphoneList loading={loadingSmartphones} smartphones={smartphones} />
+        </section>
+      </div>
+    </div>
   )
 }

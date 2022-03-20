@@ -2,6 +2,7 @@ import React from 'react';
 import { ISmartphone } from 'models/smartphone.model';
 import { SmartyCard } from 'common-components/SmartyCard.component';
 import './SmartphoneBestSellers.component.css';
+import { SmartySpace } from 'common-components/SmartySpace.component';
 
 export function SmartphoneBestSellers(props: { smartphones: Array<ISmartphone>,  bestSellers: Array<string>, loading: boolean }) {
   const bestSellersSmartphones = React.useMemo(() => {
@@ -18,7 +19,10 @@ export function SmartphoneBestSellers(props: { smartphones: Array<ISmartphone>, 
 
   return (
     <div className="sbs-container">
-      {bestSellersSmartphones.map(iSmartphone => <SmartyCard smartphone={iSmartphone} size='large' key={iSmartphone._id}/>)}
+      <SmartySpace width={'calc(var(--theme-size-distance-from-side)'} />
+      {bestSellersSmartphones.map(iSmartphone => (
+        <SmartyCard smartphone={iSmartphone} size='large' key={iSmartphone._id} space={40}/>
+      ))}
     </div>
   );
 }

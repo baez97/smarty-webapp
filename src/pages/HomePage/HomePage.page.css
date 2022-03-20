@@ -1,0 +1,20 @@
+.hp-container {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.hp-content-container {
+  margin-left: var(--theme-size-side-bar-width);
+}
+
+@media screen and (max-width: 600px) {
+  .hp-container {
+    flex-direction: column;
+  }
+
+  .hp-content-container {
+    margin-left: 0;
+    margin-top: var(--theme-size-side-bar-height);
+  }
+}

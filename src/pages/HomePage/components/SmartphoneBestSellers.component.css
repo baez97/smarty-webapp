@@ -2,6 +2,14 @@
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
-  padding: 20px;
-  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-top: 30px;
+  padding-left: 0;
+  max-width: calc(100vw - var(--theme-size-side-bar-width));
+}
+
+@media screen and (max-width: 600px) {
+  .sbs-container {
+    max-width: 100vw;
+  }
 }

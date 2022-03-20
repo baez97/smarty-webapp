@@ -10,7 +10,7 @@ export function SmartphoneList(props: { loading: boolean, smartphones: Array<ISm
   return (
     <div className="sl-grid">
       {props.smartphones.map((iSmartphone: ISmartphone) => {
-        return <SmartyCard smartphone={iSmartphone} size="medium" key={iSmartphone._id}/>
+        return <SmartyCard smartphone={iSmartphone} size="medium" key={iSmartphone._id} space={30}/>
       })}
     </div>
   );
