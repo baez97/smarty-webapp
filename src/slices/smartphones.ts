@@ -9,6 +9,7 @@ export interface ISmartphoneSliceState {
   smartphoneHasErrors: boolean,
   bestSellersHasErrors: boolean,
   smartphones: Array<ISmartphone>,
+  smartphoneSearch: { query: string, results: Array<ISmartphone> },
   bestSellers: Array<string>
 }
 
@@ -18,6 +19,7 @@ export const initialState: ISmartphoneSliceState = {
   smartphoneHasErrors: false,
   bestSellersHasErrors: false,
   smartphones: new Array<ISmartphone>(),
+  smartphoneSearch: { query: '', results: new Array<ISmartphone>() },
   bestSellers: new Array<string>()
 };
 
@@ -27,6 +29,15 @@ const smartphonesSlice = createSlice({
   reducers: {
     getSmartphones: (state) => {
       state.loadingSmartphones = true;
+    },
+    searchSmartphones: (state, { payload }) => {
+      const regexp = new RegExp(payload.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+      state.smartphoneSearch.query = payload;
+      if (payload.length > 0) {
+        state.smartphoneSearch.results = state.smartphones.filter(iSmartphone => regexp.test(iSmartphone.name));
+      } else {
+        state.smartphoneSearch.results = [];
+      }
     },
     getBestSellers: (state) => {
       state.loadingBestSellers = true;
@@ -58,7 +69,8 @@ export const {
   getSmartphonesSuccess,
   getBestSellersSuccess,
   getSmartphonesFailure,
-  getBestSellersFailure
+  getBestSellersFailure,
+  searchSmartphones
 } = smartphonesSlice.actions;
 
 export const smartphonesSelector = (state: CombinedState<{ smartphones: ISmartphoneSliceState }>) => state.smartphones;

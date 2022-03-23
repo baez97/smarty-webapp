@@ -14,6 +14,7 @@ export function HomePage() {
   const dispatch = useDispatch();
   const { smartphones, loadingSmartphones, smartphoneHasErrors } = useSelector<RootState, ISmartphoneSliceState>(smartphonesSelector);
   const { bestSellers, loadingBestSellers, bestSellersHasErrors } = useSelector<RootState, ISmartphoneSliceState>(smartphonesSelector);
+  const { smartphoneSearch } = useSelector<RootState, ISmartphoneSliceState>(smartphonesSelector);
 
   React.useEffect(() => {
     dispatch(fetchSmartphones());
@@ -24,7 +25,7 @@ export function HomePage() {
     return <SmartyText type='heading'>Loading smartphones...</SmartyText>
   }
 
-  if (smartphoneHasErrors) {
+  if (smartphoneHasErrors || bestSellersHasErrors) {
     return <SmartyText type='heading'>Unable to display smartphones...</SmartyText>
   }
 
@@ -33,14 +34,23 @@ export function HomePage() {
       <HomeSidePanel />
       <div className='hp-content-container'>
         <SmartySpace height={'var(--theme-size-distance-from-top)'} />
-        <section>
-          <SmartyText type='heading'>Best sellers</SmartyText>
-          <SmartphoneBestSellers loading={loadingSmartphones || loadingBestSellers} smartphones={smartphones} bestSellers={bestSellers} />
-        </section>
-        <section>
-          <SmartyText type='heading'>All the smartphones</SmartyText>
-          <SmartphoneList loading={loadingSmartphones} smartphones={smartphones} />
-        </section>
+        { smartphoneSearch.query?.length > 0 ? (
+          <>
+            <SmartyText type='heading'>{`Search results for "${smartphoneSearch.query}"`}</SmartyText>
+            <SmartphoneList loading={loadingSmartphones} smartphones={smartphoneSearch.results} batchSize={15}/>
+          </>
+        ) : (
+          <>
+            <section>
+              <SmartyText type='heading'>Best sellers</SmartyText>
+              <SmartphoneBestSellers loading={loadingSmartphones || loadingBestSellers} smartphones={smartphones} bestSellers={bestSellers} />
+            </section>
+            <section>
+              <SmartyText type='heading'>All the smartphones</SmartyText>
+              <SmartphoneList loading={loadingSmartphones} smartphones={smartphones} batchSize={20}/>
+            </section>
+          </>
+        )}
       </div>
     </div>
   )

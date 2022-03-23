@@ -1,0 +1,25 @@
+.sb-container {
+  position: 'relative';
+}
+
+.sb-input {
+  font-family: var(--theme-font-family);
+  font-size: var(--theme-font-size-body);
+  width: 165px;
+  border: none;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 40px;
+  border-bottom: 1px solid var(--theme-color-text);
+}
+
+.sb-input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--theme-color-label);
+}
+
+.sb-icon {
+  position: absolute;
+  left: 0;
+  top: calc(50% - 10px);
+}

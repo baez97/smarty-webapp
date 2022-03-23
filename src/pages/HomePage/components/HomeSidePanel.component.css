@@ -9,10 +9,18 @@
   box-sizing: border-box;
 }
 
+.hsp-title-space-bottom {
+  height: 60px;
+}
+
 @media screen and (max-width: 600px) {
   .hsp-container {
     height: var(--theme-size-side-bar-height);
     width: 100%;
     padding-top: 20px;
+  }
+
+  .hsp-title-space-bottom {
+    height: 10px;
   }
 }

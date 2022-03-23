@@ -20,6 +20,8 @@
   --theme-color-shadow: var(--color-grey-200);
   --theme-color-border: var(--color-grey-150);
   --theme-color-card: var(--color-white);
+  --theme-color-button-text: var(--color-white);
+  --theme-color-button-card: var(--color-blue);
   --theme-size-side-bar-width: 300px;
   --theme-size-side-bar-height: 150px;
   --theme-size-distance-from-side: 85px;

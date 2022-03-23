@@ -37,13 +37,21 @@
   font-weight: var(--font-weight-regular);
   color: var(--theme-color-label);
 }
+.st-button {
+  font-size: var(--font-size-body);
+  font-weight: bold;
+  color: var(--theme-color-button-text);
+}
 
 .st-ellipsize {
-  width: 100%;
-  max-lines: 1;
+  max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.st-secondary {
+  color: var(--theme-color-secondary-text);
 }
 
 @media screen and (max-width: 600px) {

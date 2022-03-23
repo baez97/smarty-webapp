@@ -6,6 +6,7 @@
 
 .hp-content-container {
   margin-left: var(--theme-size-side-bar-width);
+  width: 100%;
 }
 
 @media screen and (max-width: 600px) {

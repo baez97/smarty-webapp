@@ -8,7 +8,7 @@ export function SmartyPriceTag(props: { price: number }) {
   }, [props.price]);
 
   return (
-    <div className='sl-container'>
+    <div className='spt-container'>
       <SmartyText type='label'>{formattedPrice}</SmartyText>
     </div>
   )

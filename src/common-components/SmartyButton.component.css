@@ -1,0 +1,19 @@
+.sb-button {
+  padding: 20px 30px;
+  border-radius: 10px;
+  background-color: var(--theme-color-button-card);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 5px 40px var(--theme-color-shadow);
+  transition: .3s ease;
+}
+
+.sb-button:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 10px 50px var(--theme-color-shadow);
+}
+
+.sb-button:active {
+  transform: translateY(1px) scale(.995);
+  box-shadow: 0 2px 30px var(--theme-color-shadow);
+}
