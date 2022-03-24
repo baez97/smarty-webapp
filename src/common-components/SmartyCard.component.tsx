@@ -8,9 +8,11 @@ export function SmartyCard(props: { smartphone: ISmartphone, size: 'medium' | 'l
   const size = props.size || 'medium';
   return (
     <div className={`sc-container sc-${size}`} style={{ marginRight: props.space, marginBottom: props.space }}>
-      <SmartyImage size={size} source={props.smartphone.imageUrl} />
-      <SmartyText type='content-title' ellipsize={true}>{props.smartphone.name}</SmartyText>
-      <SmartyPriceTag price={props.smartphone.price} />
+      <SmartyImage size={size} source={props.smartphone.imageUrl} alt={props.smartphone.name}/>
+      <div className={`sc-info-container sc-info-${size}`}>
+        <SmartyText type='content-title' ellipsize={true}>{props.smartphone.name}</SmartyText>
+        <SmartyPriceTag price={props.smartphone.price} />
+      </div>
     </div>
   );
 }

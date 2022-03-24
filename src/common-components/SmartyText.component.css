@@ -46,6 +46,7 @@
 .st-ellipsize {
   max-width: 100%;
   white-space: nowrap;
+  max-lines: 1;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -56,7 +57,7 @@
 
 @media screen and (max-width: 600px) {
   .smarty-text {
-    --font-size-display: 25px;
+    --font-size-display: 30px;
     --font-size-heading: 20px;
     --font-size-content-title: 15px;
     --font-size-body: 14px;

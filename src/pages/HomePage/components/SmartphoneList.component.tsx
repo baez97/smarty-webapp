@@ -6,6 +6,7 @@ import { SmartyButton } from 'common-components/SmartyButton.component';
 import './SmartphoneList.component.css';
 import { SmartySpace } from 'common-components/SmartySpace.component';
 import NoResults from 'assets/no-results';
+import { i18n } from 'internationalization/i18n';
 
 export function SmartphoneList(props: { loading: boolean, smartphones: Array<ISmartphone>, batchSize: number }) {
   const [nOfItems, setNOfItems] = React.useState(props.batchSize);
@@ -34,7 +35,7 @@ export function SmartphoneList(props: { loading: boolean, smartphones: Array<ISm
         })}
       </div>
       <SmartySpace height={50}/>
-      {!allSmartphonesShown && <SmartyButton title="SHOW MORE" onClick={() => setNOfItems(prev => prev + props.batchSize)} />}
+      {!allSmartphonesShown && <SmartyButton title={i18n('showMore')} onClick={() => setNOfItems(prev => prev + props.batchSize)} />}
     </div>
   );
 }

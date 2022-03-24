@@ -23,3 +23,29 @@
   left: 0;
   top: calc(50% - 10px);
 }
+
+@media screen and (max-width: 600px) {
+  .sb-container {
+    margin-top: 20px;
+  }
+
+  .sb-input {
+    border: none;
+    background-color: var(--theme-color-card);
+    box-shadow: 0 5px 40px var(--theme-color-shadow);
+    border-radius: 15px;
+    width: calc(100% - var(--theme-size-distance-from-side));
+    box-sizing: border-box;
+    padding-left: 65px;
+    transition: .3s ease;
+  }
+
+  .sb-icon {
+    left: 20px;
+  }
+
+  .sb-input:focus {
+    outline: 2px solid var(--theme-color-label);
+    border: none;
+  }
+}

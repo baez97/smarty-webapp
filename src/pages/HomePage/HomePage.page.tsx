@@ -9,6 +9,7 @@ import { HomeSidePanel } from './components/HomeSidePanel.component';
 
 import './HomePage.page.css';
 import { SmartySpace } from 'common-components/SmartySpace.component';
+import { i18n } from 'internationalization/i18n';
 
 export function HomePage() {
   const dispatch = useDispatch();
@@ -42,11 +43,11 @@ export function HomePage() {
         ) : (
           <>
             <section>
-              <SmartyText type='heading'>Best sellers</SmartyText>
+              <SmartyText type='heading'>{i18n('bestSellers')}</SmartyText>
               <SmartphoneBestSellers loading={loadingSmartphones || loadingBestSellers} smartphones={smartphones} bestSellers={bestSellers} />
             </section>
             <section>
-              <SmartyText type='heading'>All the smartphones</SmartyText>
+              <SmartyText type='heading'>{i18n('allSmartphones')}</SmartyText>
               <SmartphoneList loading={loadingSmartphones} smartphones={smartphones} batchSize={20}/>
             </section>
           </>
