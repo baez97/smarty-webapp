@@ -1,0 +1,32 @@
+.dsp-container {
+  height: 100vh;
+  border-right: 1px solid var(--theme-color-border);
+  min-width: var(--theme-size-side-bar-width);
+  position: fixed;
+  z-index: 100;
+  padding-top: calc(var(--theme-size-distance-from-top) - 6px);
+  padding-left: var(--theme-size-distance-from-side);
+  box-sizing: border-box;
+}
+
+.dsp-title-space-bottom {
+  height: 60px;
+}
+
+@media screen and (max-width: 600px) {
+  .dsp-container {
+    height: var(--theme-size-side-bar-height);
+    width: 100%;
+    padding-top: 30px;
+    position: initial;
+    display: flex;
+    flex-direction: row-reverse;
+    padding-left: var(--theme-size-distance-from-side);
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .dsp-title-space-bottom {
+    height: 0px;
+  }
+}

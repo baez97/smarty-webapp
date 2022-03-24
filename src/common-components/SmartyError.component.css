@@ -1,0 +1,12 @@
+.se-error-container {
+  height: 80vh;
+  width: 100%;
+  text-align: center;
+  padding-top: 10vh;
+}
+
+.se-error-container > svg {
+  height: 40vh;
+  width: auto;
+  max-height: 400px;
+}

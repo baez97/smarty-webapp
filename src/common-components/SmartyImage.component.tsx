@@ -2,7 +2,7 @@ import React from 'react';
 import './SmartyImage.component.css';
 import EmptyPhone from '../assets/empty-phone';
 
-export function SmartyImage(props: { source?: string, size: 'medium' | 'large', alt?: string }) {
+export function SmartyImage(props: { source?: string, size: 'medium' | 'large' | 'huge', alt?: string }) {
   const [showPlaceholder, setShowPlaceholder] = React.useState(props.source === undefined);
 
   return (

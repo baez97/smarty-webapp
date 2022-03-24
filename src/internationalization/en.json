@@ -4,5 +4,8 @@
   "allSmartphones":  "All the Smartphones",
   "showMore": "SHOW MORE",
   "loadingSmartphones": "Loading Smartphones...",
-  "unableToDisplay": "Sorry, our services are unavailable."
+  "unableToDisplay": "Sorry, our services are unavailable.",
+  "searchResultsFor": "Search results for ",
+  "routeNotFound": "This page does not exist",
+  "back": "Back"
 }

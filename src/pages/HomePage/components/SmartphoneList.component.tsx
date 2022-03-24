@@ -8,12 +8,8 @@ import { SmartySpace } from 'common-components/SmartySpace.component';
 import NoResults from 'assets/no-results';
 import { i18n } from 'internationalization/i18n';
 
-export function SmartphoneList(props: { loading: boolean, smartphones: Array<ISmartphone>, batchSize: number }) {
+export function SmartphoneList(props: { smartphones: Array<ISmartphone>, batchSize: number }) {
   const [nOfItems, setNOfItems] = React.useState(props.batchSize);
-
-  if (props.loading) {
-    return <SmartyText type='content-title'>Loading</SmartyText>;
-  }
 
   const smartphonesToShow = props.smartphones.slice(0, nOfItems);
   const allSmartphonesShown = nOfItems >= props.smartphones.length;
@@ -21,12 +17,13 @@ export function SmartphoneList(props: { loading: boolean, smartphones: Array<ISm
   if (smartphonesToShow.length === 0) {
     return (
       <div className='sl-no-results-container'>
-        <NoResults width={'var(--illustration-width)'}/>
+        <NoResults />
         <SmartySpace height={10} />
         <SmartyText type='content-title' secondary>No smartphones found</SmartyText>
       </div>
     )
   }
+
   return (
     <div className="sl-container">
       <div className="sl-grid">

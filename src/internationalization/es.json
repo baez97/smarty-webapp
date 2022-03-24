@@ -4,5 +4,8 @@
   "allSmartphones":  "Todos los Smartphones",
   "showMore": "VER MÁS",
   "loadingSmartphones": "Cargando Smartphones...",
-  "unableToDisplay": "Lo sentimos, nuestros servicios no están disponibles en este momento"
+  "unableToDisplay": "Lo sentimos, nuestros servicios no están disponibles en este momento",
+  "searchResultsFor": "Resultados para ",
+  "routeNotFound": "Esta página no existe",
+  "back": "Atrás"
 }

@@ -42,5 +42,6 @@ body {
   .light {
     --theme-size-distance-from-side: 30px;
     --theme-size-side-bar-height: 70px;
+    --theme-size-details-distance-from-top: 30px;
   }
 }

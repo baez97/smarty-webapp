@@ -10,6 +10,8 @@ import { HomeSidePanel } from './components/HomeSidePanel.component';
 import './HomePage.page.css';
 import { SmartySpace } from 'common-components/SmartySpace.component';
 import { i18n } from 'internationalization/i18n';
+import { SmartyLoading } from 'common-components/SmartyLoading.component';
+import { SmartyError } from 'common-components/SmartyError.component';
 
 export function HomePage() {
   const dispatch = useDispatch();
@@ -18,16 +20,20 @@ export function HomePage() {
   const { smartphoneSearch } = useSelector<RootState, ISmartphoneSliceState>(smartphonesSelector);
 
   React.useEffect(() => {
-    dispatch(fetchSmartphones());
-    dispatch(fetchBestSellers());
+    if (!smartphones.length) {
+      dispatch(fetchSmartphones());
+    }
+    if (!bestSellers.length) {
+      dispatch(fetchBestSellers());
+    }
   }, [dispatch]);
 
   if (loadingSmartphones) {
-    return <SmartyText type='heading'>Loading smartphones...</SmartyText>
+    return <SmartyLoading message={i18n('loadingSmartphones')} />
   }
 
   if (smartphoneHasErrors || bestSellersHasErrors) {
-    return <SmartyText type='heading'>Unable to display smartphones...</SmartyText>
+    return <SmartyError message={i18n('unableToDisplay')} />
   }
 
   return (
@@ -37,8 +43,8 @@ export function HomePage() {
         <SmartySpace height={'var(--theme-size-distance-from-top)'} />
         { smartphoneSearch.query?.length > 0 ? (
           <>
-            <SmartyText type='heading'>{`Search results for "${smartphoneSearch.query}"`}</SmartyText>
-            <SmartphoneList loading={loadingSmartphones} smartphones={smartphoneSearch.results} batchSize={15}/>
+            <SmartyText type='heading'>{`${i18n('searchResultsFor')}"${smartphoneSearch.query}"`}</SmartyText>
+            <SmartphoneList smartphones={smartphoneSearch.results} batchSize={15}/>
           </>
         ) : (
           <>
@@ -48,7 +54,7 @@ export function HomePage() {
             </section>
             <section>
               <SmartyText type='heading'>{i18n('allSmartphones')}</SmartyText>
-              <SmartphoneList loading={loadingSmartphones} smartphones={smartphones} batchSize={20}/>
+              <SmartphoneList smartphones={smartphones} batchSize={20}/>
             </section>
           </>
         )}

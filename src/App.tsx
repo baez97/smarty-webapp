@@ -1,4 +1,6 @@
-import { availableLanguage, availableLanguages, setLanguage } from 'internationalization/i18n';
+import { SmartyText } from 'common-components/SmartyText.component';
+import { availableLanguage, availableLanguages, i18n, setLanguage } from 'internationalization/i18n';
+import { DetailsPage } from 'pages/DetailsPage/DetailsPage.page';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -17,8 +19,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/details" element={<h1>Details</h1>}></Route>
-        <Route path="*" element={<h1>We could not find your route :(</h1>}></Route>
+        <Route path="/details/:id" element={<DetailsPage />}></Route>
+        <Route path="*" element={<SmartyText type='display'>{i18n('routeNotFound')}</SmartyText>}></Route>
       </Routes>
     </BrowserRouter>
   );

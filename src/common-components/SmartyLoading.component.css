@@ -1,0 +1,43 @@
+.sl-loading-container {
+  height: 80vh;
+  width: 100%;
+  text-align: center;
+  padding-top: 10vh;
+}
+
+.sl-loading-container > svg {
+  height: 40vh;
+  width: auto;
+  max-height: 400px;
+}
+
+.floating-cloud {
+  animation-name: floatingAnimation;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+.cloud-2 {
+  animation-delay: .7s;
+  animation-duration: 5s;
+}
+
+.cloud-3 {
+  animation-delay: 1.4s;
+  animation-duration: 3s;
+}
+
+@keyframes floatingAnimation {
+  0% {
+    opacity: .3;
+    transform: translateX(-177.21357px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-137.21357px);
+  }
+  100% {
+    opacity: .3;
+    transform: translateX(-177.21357px);
+  }
+}

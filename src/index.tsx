@@ -10,6 +10,9 @@ const store = configureStore({ reducer: rootReducer });
 
 export type RootState = ReturnType<typeof rootReducer>;
 
+console.log('%cSmarty', 'padding-left:30%;font-family:Poppins;font-weight:800;font-size:33px');
+console.log('%cJosé Manuel Báez', 'padding-left:30%; font-family:Poppins;font-size:14px');
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
