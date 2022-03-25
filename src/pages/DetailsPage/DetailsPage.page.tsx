@@ -1,3 +1,4 @@
+import { Smarty404 } from 'common-components/Smarty404.component';
 import { SmartyCard } from 'common-components/SmartyCard.component';
 import { SmartyError } from 'common-components/SmartyError.component';
 import { SmartyLoading } from 'common-components/SmartyLoading.component';
@@ -32,12 +33,16 @@ export function DetailsPage() {
     return <SmartyLoading message={i18n('loadingSmartphones')} />
   }
 
-  if (smartphoneHasErrors || !smartphone) {
+  if (smartphoneHasErrors) {
     return <SmartyError message={i18n('unableToDisplay')} />
   }
 
   if (smartphoneHasErrors) {
     return <SmartyText type='heading'>{i18n('unableToDisplay')}</SmartyText>
+  }
+
+  if (!smartphone) {
+    return <Smarty404 message={i18n('deviceNotFound')} />
   }
 
   return (

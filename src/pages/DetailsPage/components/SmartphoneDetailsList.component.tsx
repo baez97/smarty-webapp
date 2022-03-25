@@ -11,13 +11,13 @@ export function SmartphoneDetailsList(props: { smartphone: ISmartphone }) {
 
   return (
     <div>
-      <SmartphoneDetailsListItem icon="cpu" text={`${processor.name} ${processor.cores} x ${processor.frequency} GHz`} />
-      <SmartphoneDetailsListItem icon="os" text={`${props.smartphone.os.type}`} />
-      <SmartphoneDetailsListItem icon="ram" text={formatMemory(ram)} />
-      <SmartphoneDetailsListItem icon="rom" text={formatMemory(rom)} />
-      <SmartphoneDetailsListItem icon="manufacturer" text={`${props.smartphone.manufacturer}`} />
-      <SmartphoneDetailsListItem icon="screen" text={`${screenSize.inches}' ${screenSize.width} x ${screenSize.height} mm`} />
-      <SmartyPriceTag price={props.smartphone.price} />
+      {!!processor && <SmartphoneDetailsListItem icon="cpu" text={`${processor.name} ${processor.cores} x ${processor.frequency} GHz`} />}
+      {!!props.smartphone.os && <SmartphoneDetailsListItem icon="os" text={`${props.smartphone.os.type}`} />}
+      {ram !== undefined && <SmartphoneDetailsListItem icon="ram" text={formatMemory(ram)} />}
+      {rom !== undefined && <SmartphoneDetailsListItem icon="rom" text={formatMemory(rom)} />}
+      {!!props.smartphone.manufacturer && <SmartphoneDetailsListItem icon="manufacturer" text={`${props.smartphone.manufacturer}`} />}
+      {screenSize.inches !== undefined && <SmartphoneDetailsListItem icon="screen" text={`${screenSize.inches}' ${screenSize.width} x ${screenSize.height} mm`} />}
+      {!!props.smartphone.price && <SmartyPriceTag price={props.smartphone.price} />}
     </div>
   )
 }

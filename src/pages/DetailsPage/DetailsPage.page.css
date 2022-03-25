@@ -6,6 +6,7 @@
 
 .dp-content-container {
   margin-left: var(--theme-size-side-bar-width);
+  margin-top: var(--theme-size-distance-from-top);
   width: 100%;
 }
 
@@ -16,5 +17,6 @@
 
   .dp-content-container {
     margin-left: 0;
+    margin-top: 0;
   }
 }
