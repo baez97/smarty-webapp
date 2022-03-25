@@ -1,5 +1,4 @@
 import { Smarty404 } from 'common-components/Smarty404.component';
-import { SmartyText } from 'common-components/SmartyText.component';
 import { availableLanguage, availableLanguages, i18n, setLanguage } from 'internationalization/i18n';
 import { DetailsPage } from 'pages/DetailsPage/DetailsPage.page';
 import React from 'react';

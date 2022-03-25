@@ -1,5 +1,4 @@
 import { Smarty404 } from 'common-components/Smarty404.component';
-import { SmartyCard } from 'common-components/SmartyCard.component';
 import { SmartyError } from 'common-components/SmartyError.component';
 import { SmartyLoading } from 'common-components/SmartyLoading.component';
 import { SmartySpace } from 'common-components/SmartySpace.component';
@@ -26,7 +25,7 @@ export function DetailsPage() {
     if (!allSmartphones.length) {
       dispatch(fetchSmartphones());
     }
-  }, [dispatch]);
+  }, [dispatch, allSmartphones?.length]);
 
 
   if (loadingSmartphones) {

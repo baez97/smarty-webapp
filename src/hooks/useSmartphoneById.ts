@@ -12,7 +12,7 @@ export function useSmartphoneById(id?: string, allSmartphones?: Array<ISmartphon
     if (smartphone) {
       setSmartphone(smartphone);
     }
-  }, [allSmartphones?.length]);
+  }, [allSmartphones, id]);
 
   return [smartphone, setSmartphone];
 }

@@ -1,6 +1,5 @@
 import { CombinedState, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { constants } from '../constants';
 import { ISmartphone } from '../models/smartphone.model';
 
 export interface ISmartphoneSliceState {
@@ -82,7 +81,7 @@ export function fetchSmartphones() {
     dispatch(getSmartphones());
 
     try {
-      const { data } = await axios.get(`${constants.BACKEND_URL}/device/all`);
+      const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/device/all`);
       dispatch(getSmartphonesSuccess(data));
     } catch {
       dispatch(getSmartphonesFailure());
@@ -95,7 +94,7 @@ export function fetchBestSellers() {
     dispatch(getBestSellers());
 
     try {
-      const { data } = await axios.get(`${constants.BACKEND_URL}/device/best-sellers`);
+      const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/device/best-sellers`);
       dispatch(getBestSellersSuccess(data));
     } catch {
       dispatch(getBestSellersFailure());

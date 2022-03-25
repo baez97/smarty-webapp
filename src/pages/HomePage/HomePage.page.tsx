@@ -26,7 +26,7 @@ export function HomePage() {
     if (!bestSellers.length) {
       dispatch(fetchBestSellers());
     }
-  }, [dispatch]);
+  }, [dispatch, smartphones, bestSellers]);
 
   if (loadingSmartphones) {
     return <SmartyLoading message={i18n('loadingSmartphones')} />
